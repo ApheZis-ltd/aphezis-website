@@ -309,7 +309,7 @@ export default function Home() {
         </section>
 
         {/* Portfolio Section */}
-        <PortfolioSection /> */
+        <PortfolioSection />
         {/* Testimonials Section */}
         <section className="w-full">
           <div className="container px-4 md:px-6">
@@ -427,7 +427,7 @@ export default function Home() {
           <AboutPage />
         </section>
         <section id="solutions">
-          <SolutionsPage/>
+          <SolutionsPage />
         </section>
         <section id="contact">
           <ContactPage />

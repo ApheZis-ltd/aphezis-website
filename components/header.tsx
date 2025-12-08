@@ -9,6 +9,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { Menu, X } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useTheme } from "next-themes"
 
 const navigation = [
   { name: "Home", href: "/", section: "home" },
@@ -21,6 +22,12 @@ export default function Header() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
+  const { theme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,13 +69,13 @@ export default function Header() {
 
   return (
     <motion.header
-      className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="bg-blue-800 border-gray-900/10">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8" aria-label="Global">
+      <div className="container mx-auto">
+        <nav className="flex h-16 items-center justify-between px-4 md:px-6" aria-label="Global">
           <motion.div
             className="flex lg:flex-1"
             initial={{ opacity: 0 }}
@@ -76,18 +83,18 @@ export default function Header() {
             transition={{ duration: 0.5 }}
           >
             <Link href="/" className="-m-1.5 p-1.5">
-              <motion.span className="font-bold text-xl" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-                <Image
-                  src="/logo2.png"
-                  alt="ApheZis Logo"
-                  width={32}
-                  height={32}
-                  className="h-full w-[8rem] inline-block drop-shadow-4xl "
-                  style={{ filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.5))' }}
-                />
-
+              <motion.span className="font-bold text-xl flex items-center gap-2" whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
+                {mounted && (
+                  <Image
+                    src="/icon_no_bg.png"
+                    alt="ApheZis Logo"
+                    width={32}
+                    height={32}
+                    className="h-8 w-auto"
+                  />
+                )}
+                <span className="hidden sm:inline-block font-bold text-xl tracking-tight text-foreground">ApheZis</span>
               </motion.span>
-              <span className="sr-only">ApheZis</span>
             </Link>
           </motion.div>
           <div className="flex lg:hidden">
@@ -100,7 +107,7 @@ export default function Header() {
               <Menu className="h-6 w-6" aria-hidden="true" />
             </Button>
           </div>
-          <div className="hidden lg:flex lg:gap-x-12">
+          <div className="hidden lg:flex lg:gap-x-8">
             {navigation.map((item, index) => (
               <motion.div
                 key={item.name}
@@ -112,14 +119,14 @@ export default function Header() {
                   href={item.href}
                   onClick={() => handleNavClick(item.section)}
                   className={cn(
-                    "text-sm font-semibold leading-6 transition-colors hover:text-white relative",
-                    isActive(item) ? "text-white" : "text-white/80",
+                    "text-sm font-medium transition-colors hover:text-primary relative py-2",
+                    isActive(item) ? "text-primary" : "text-muted-foreground",
                   )}
                 >
                   {item.name}
                   {isActive(item) && (
                     <motion.span
-                      className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-white"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
                       layoutId="underline"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />

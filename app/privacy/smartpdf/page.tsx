@@ -393,7 +393,34 @@ export default function PrivacyPolicyPage() {
                                                         If you have any questions, concerns, or requests regarding this Privacy Policy or our data
                                                         practices, please contact us:
                                                     </p>
-                                                    <div className="space-y-2 mt-4">
+                                                    {/* Quick Links */}
+                                                    <section className="w-full py-8 bg-muted/50">
+                                                        <div className="container px-4 md:px-6">
+                                                            <FadeIn>
+                                                                <div className="flex flex-wrap justify-center gap-4">
+                                                                    <a href="#information-collection" className="text-sm text-blue-700 hover:underline">
+                                                                        Information Collection
+                                                                    </a>
+                                                                    <span className="text-muted-foreground">•</span>
+                                                                    <a href="#data-usage" className="text-sm text-blue-700 hover:underline">
+                                                                        Data Usage
+                                                                    </a>
+                                                                    <span className="text-muted-foreground">•</span>
+                                                                    <a href="#data-security" className="text-sm text-blue-700 hover:underline">
+                                                                        Data Security
+                                                                    </a>
+                                                                    <span className="text-muted-foreground">•</span>
+                                                                    <a href="#your-rights" className="text-sm text-blue-700 hover:underline">
+                                                                        Your Rights
+                                                                    </a>
+                                                                    <span className="text-muted-foreground">•</span>
+                                                                    <a href="#contact" className="text-sm text-blue-700 hover:underline">
+                                                                        Contact Us
+                                                                    </a>
+                                                                </div>
+                                                            </FadeIn>
+                                                        </div>
+                                                    </section>                                                    <div className="space-y-2 mt-4">
                                                         <p className="text-foreground">
                                                             <strong>Email:</strong>{" "}
                                                             <a href="mailto:info@aphezis.com" className="text-blue-700 hover:underline">
