@@ -1,10 +1,11 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import dynamic from "next/dynamic"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, Code, Globe, LineChart } from "lucide-react"
+import { ArrowRight, Code, Globe, LineChart, Cpu } from "lucide-react"
 import { FadeIn, SlideIn, StaggerContainer, StaggerItem, HoverScale, PageTransition } from "@/components/animations"
 import { motion } from "framer-motion"
 import { useEffect, useRef } from "react"
@@ -234,22 +235,28 @@ export default function Home() {
                 </div>
               </div>
             </FadeIn>
-            <StaggerContainer className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
+            <StaggerContainer className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2">
               <StaggerItem>
                 <HoverScale>
-                  <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 h-full">
-                    <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
+                  <Card className="bg-card/50 backdrop-blur-sm border-muted/40 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 h-full group overflow-hidden">
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <Image
+                        src="/software-dev.png"
+                        alt="Software Development"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                    </div>
+                    <CardContent className="p-6 flex flex-col items-center text-center space-y-4 relative">
                       <motion.div
-                        className="p-2 bg-primary/10 rounded-full"
-                        whileHover={{
-                          backgroundColor: "rgba(var(--primary), 0.2)",
-                          scale: 1.05,
-                        }}
+                        className="p-3 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors -mt-12 relative z-10 bg-background"
+                        whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <Code className="h-6 w-6 text-blue-700" />
+                        <Code className="h-8 w-8 text-primary" />
                       </motion.div>
-                      <h3 className="text-xl font-bold">Software Development</h3>
+                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Software Development</h3>
                       <p className="text-muted-foreground">
                         Custom software solutions designed to streamline your business operations and enhance
                         productivity.
@@ -260,19 +267,25 @@ export default function Home() {
               </StaggerItem>
               <StaggerItem>
                 <HoverScale>
-                  <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 h-full">
-                    <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
+                  <Card className="bg-card/50 backdrop-blur-sm border-muted/40 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 h-full group overflow-hidden">
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <Image
+                        src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=800&q=80"
+                        alt="Web Development"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                    </div>
+                    <CardContent className="p-6 flex flex-col items-center text-center space-y-4 relative">
                       <motion.div
-                        className="p-2 bg-primary/10 rounded-full"
-                        whileHover={{
-                          backgroundColor: "rgba(var(--primary), 0.2)",
-                          scale: 1.05,
-                        }}
+                        className="p-3 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors -mt-12 relative z-10 bg-background"
+                        whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <Globe className="h-6 w-6 text-blue-700" />
+                        <Globe className="h-8 w-8 text-primary" />
                       </motion.div>
-                      <h3 className="text-xl font-bold">Web Development</h3>
+                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Web Development</h3>
                       <p className="text-muted-foreground">
                         Responsive and user-friendly websites that provide exceptional user experience and drive
                         conversions.
@@ -283,19 +296,53 @@ export default function Home() {
               </StaggerItem>
               <StaggerItem>
                 <HoverScale>
-                  <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 h-full">
-                    <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
+                  <Card className="bg-card/50 backdrop-blur-sm border-muted/40 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 h-full group overflow-hidden">
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <Image
+                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+                        alt="IoT & Electronics"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                    </div>
+                    <CardContent className="p-6 flex flex-col items-center text-center space-y-4 relative">
                       <motion.div
-                        className="p-2 bg-primary/10 rounded-full"
-                        whileHover={{
-                          backgroundColor: "rgba(var(--primary), 0.2)",
-                          scale: 1.05,
-                        }}
+                        className="p-3 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors -mt-12 relative z-10 bg-background"
+                        whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <LineChart className="h-6 w-6 text-blue-700" />
+                        <Cpu className="h-8 w-8 text-primary" />
                       </motion.div>
-                      <h3 className="text-xl font-bold">Forex & Crypto Trading</h3>
+                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors">IoT & Electronics</h3>
+                      <p className="text-muted-foreground">
+                        End-to-end development of smart devices and IoT solutions, from prototyping to production.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </HoverScale>
+              </StaggerItem>
+              <StaggerItem>
+                <HoverScale>
+                  <Card className="bg-card/50 backdrop-blur-sm border-muted/40 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 h-full group overflow-hidden">
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <Image
+                        src="/forex-trading.png"
+                        alt="Forex & Crypto Trading"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                    </div>
+                    <CardContent className="p-6 flex flex-col items-center text-center space-y-4 relative">
+                      <motion.div
+                        className="p-3 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors -mt-12 relative z-10 bg-background"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <LineChart className="h-8 w-8 text-primary" />
+                      </motion.div>
+                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors">Forex & Crypto Trading</h3>
                       <p className="text-muted-foreground">
                         Comprehensive learning sessions starting in September to help you navigate the financial
                         markets.

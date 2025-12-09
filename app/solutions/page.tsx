@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Code, Globe, GraduationCap, LineChart } from "lucide-react"
+import { ArrowRight, Code, Globe, GraduationCap, LineChart, Cpu } from "lucide-react"
 import { FadeIn, SlideIn, PageTransition, HoverScale } from "@/components/animations"
 import { motion } from "framer-motion"
 
@@ -230,6 +230,108 @@ export default function SolutionsPage() {
                     </Link>
                   </div>
                 </div>
+              </SlideIn>
+            </div>
+          </div>
+        </section>
+
+        {/* IoT & Electronic Device Development */}
+        <section className="w-full py-4 md:py-8 lg:py-10 bg-primary/5">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+              <SlideIn direction="left">
+                <div className="flex flex-col justify-center space-y-4">
+                  <motion.div
+                    className="inline-flex items-center space-x-2 rounded-md bg-primary/10 px-3 py-1 text-sm font-medium text-primary"
+                    whileHover={{ backgroundColor: "rgba(var(--primary), 0.2)" }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Cpu className="h-4 w-4" />
+                    <span>IoT & Electronics</span>
+                  </motion.div>
+                  <div className="space-y-2">
+                    <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                      Smart Device Development
+                    </h2>
+                    <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                      From concept to prototype to production, we build custom electronic devices and IoT solutions
+                      that connect your business to the physical world.
+                    </p>
+                  </div>
+                  <ul className="grid gap-2">
+                    <motion.li
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.1 }}
+                    >
+                      <div className="rounded-full bg-primary/10 p-1">
+                        <ArrowRight className="h-3 w-3 text-primary" />
+                      </div>
+                      <span>Custom PCB Design & Prototyping</span>
+                    </motion.li>
+                    <motion.li
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.2 }}
+                    >
+                      <div className="rounded-full bg-primary/10 p-1">
+                        <ArrowRight className="h-3 w-3 text-primary" />
+                      </div>
+                      <span>Firmware Development</span>
+                    </motion.li>
+                    <motion.li
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.3 }}
+                    >
+                      <div className="rounded-full bg-primary/10 p-1">
+                        <ArrowRight className="h-3 w-3 text-primary" />
+                      </div>
+                      <span>IoT Cloud Integration</span>
+                    </motion.li>
+                    <motion.li
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.4 }}
+                    >
+                      <div className="rounded-full bg-primary/10 p-1">
+                        <ArrowRight className="h-3 w-3 text-primary" />
+                      </div>
+                      <span>Smart Home & Industrial Automation</span>
+                    </motion.li>
+                  </ul>
+                  <div>
+                    <Link href="/contact">
+                      <HoverScale>
+                        <Button className="group">
+                          Start Your Project
+                          <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        </Button>
+                      </HoverScale>
+                    </Link>
+                  </div>
+                </div>
+              </SlideIn>
+              <SlideIn direction="right" className="lg:order-last">
+                <motion.div
+                  animate={{
+                    y: [0, -5, 0],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Number.POSITIVE_INFINITY,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                  }}
+                >
+                  <div className="mx-auto aspect-video overflow-hidden rounded-xl bg-muted flex items-center justify-center sm:w-full">
+                    <Cpu className="h-24 w-24 text-muted-foreground/50" />
+                  </div>
+                </motion.div>
               </SlideIn>
             </div>
           </div>
