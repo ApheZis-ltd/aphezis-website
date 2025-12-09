@@ -94,7 +94,7 @@ export default function Header() {
                     className="h-8 w-auto"
                   />
                 )}
-                <span className="hidden sm:inline-block font-bold text-xl tracking-tight text-foreground">ApheZis</span>
+                <span className="hidden sm:inline-block font-bold text-xl tracking-tight text-blue-600 dark:text-blue-400">ApheZis</span>
               </motion.span>
             </Link>
           </motion.div>

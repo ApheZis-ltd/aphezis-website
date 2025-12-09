@@ -197,7 +197,7 @@ export default function Home() {
                       Innovative Tech Solutions for Your Business
                     </h1>
                     <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                      ApheZis offers cutting-edge software and web development services to help your business thrive in
+                      <span className="text-blue-600 dark:text-blue-400 font-semibold">ApheZis</span> offers cutting-edge software and web development services to help your business thrive in
                       the digital world.
                     </p>
                   </div>
