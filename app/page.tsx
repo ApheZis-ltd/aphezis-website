@@ -192,7 +192,7 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-4">
                 <SlideIn direction="left">
                   <div className="space-y-2">
-                    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">
                       Innovative Tech Solutions for Your Business
                     </h1>
                     <p className="max-w-[600px] text-muted-foreground md:text-xl">
@@ -237,7 +237,7 @@ export default function Home() {
             <StaggerContainer className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
               <StaggerItem>
                 <HoverScale>
-                  <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:border-primary/30 transition-all duration-300 h-full">
+                  <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 h-full">
                     <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
                       <motion.div
                         className="p-2 bg-primary/10 rounded-full"
@@ -260,7 +260,7 @@ export default function Home() {
               </StaggerItem>
               <StaggerItem>
                 <HoverScale>
-                  <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:border-primary/30 transition-all duration-300 h-full">
+                  <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 h-full">
                     <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
                       <motion.div
                         className="p-2 bg-primary/10 rounded-full"
@@ -283,7 +283,7 @@ export default function Home() {
               </StaggerItem>
               <StaggerItem>
                 <HoverScale>
-                  <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:border-primary/30 transition-all duration-300 h-full">
+                  <Card className="bg-background/50 backdrop-blur-sm border border-primary/10 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 h-full">
                     <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
                       <motion.div
                         className="p-2 bg-primary/10 rounded-full"
@@ -387,7 +387,7 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-700 text-primary-foreground">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
           <div className="container px-4 md:px-6">
             <FadeIn>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -395,7 +395,7 @@ export default function Home() {
                   <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
                     Ready to Transform Your Business?
                   </h2>
-                  <p className="mx-auto max-w-[700px] md:text-xl">
+                  <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                     Join our internship program starting in July or enroll in our Forex and Crypto trading sessions
                     beginning in September.
                   </p>
@@ -405,8 +405,8 @@ export default function Home() {
                   whileHover={{ scale: 1.03 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Link className="text-blue-700" href="/contact">
-                    <Button variant="secondary" size="lg" className="text-blue-700 group">
+                  <Link href="/contact">
+                    <Button size="lg" className="group">
                       Get Started Today
                       <motion.span
                         className="ml-2"
@@ -424,13 +424,19 @@ export default function Home() {
           </div>
         </section>
         <section id="about">
-          <AboutPage />
+          <FadeIn>
+            <AboutPage />
+          </FadeIn>
         </section>
         <section id="solutions">
-          <SolutionsPage />
+          <FadeIn>
+            <SolutionsPage />
+          </FadeIn>
         </section>
         <section id="contact">
-          <ContactPage />
+          <FadeIn>
+            <ContactPage />
+          </FadeIn>
         </section>
 
       </div>

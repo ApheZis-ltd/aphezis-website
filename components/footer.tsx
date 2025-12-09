@@ -23,7 +23,6 @@ export default function Footer() {
           <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.2 }}>
             <Link href="#" className="text-foreground/60 hover:text-primary">
               <span className="sr-only">Twitter</span>
-
               <Twitter className="h-6 w-6" viewBox="0 0 24 24" aria-hidden="true" />
             </Link>
           </motion.div>

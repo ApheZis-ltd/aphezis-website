@@ -1,91 +1,77 @@
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { motion } from "framer-motion"
-import { title } from "process"
-import Marquee from "react-fast-marquee"
-
-const projects = [
-  {
-    title: "Weduca Platform",
-    desc: "A comprehensive educational platform designed to facilitate online learning and collaboration.",
-    client: "Kenzo",
-    type: "Client",
-    avatar: "K",
-  },
-  {
-    title: "NeuroLab EEG App",
-    desc: "Portable EEG paired with AI-powered analytics for real-time brainwave insights.",
-    client: "Internal",
-    type: "Team Project",
-    avatar: "N",
-  },
-  {
-    title: "CarConnects Website",
-    desc: "A modern automotive listing site with secure business email & domain integration.",
-    client: "Car Connect",
-    type: "Client",
-    avatar: "C",
-  },
-  {
-    title: "ApheZis Platform",
-    desc: "Internal tool for managing deals, clients, and performance analytics.",
-    client: "Internal",
-    type: "Team Project",
-    avatar: "A",
-  },
-  {
-    title: "Genzura Platform",
-    desc: "A cutting-edge Inventory project that aims to revolutionize the way businesses manage inventory and their Teams.",
-    client: "Internal",
-    type: "Team Project",
-    avatar: "G",
-  },
-
-]
+import { projects } from "@/lib/data"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { ArrowRight } from "lucide-react"
 
 export default function PortfolioSection() {
+  const displayedProjects = projects.slice(0, 2)
+
   return (
-    <section className="w-full bg-muted/50 overflow-hidden">
+    <section className="w-full bg-muted/50 py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Portfolio</h2>
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Featured Projects</h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-              Check out some of our latest projects and see how we can help your business succeed
+              A glimpse into our recent work. Explore how we help businesses succeed.
             </p>
           </div>
         </div>
 
-        {/* Horizontal Infinite Scroll */}
-        <div className="py-12">
-          <Marquee gradient={false} speed={40} pauseOnHover={true}>
-            {projects.map((proj, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ scale: 1.03 }}
-                className="mx-3 w-80"
-              >
-                <Card className="bg-background h-full shadow-md">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col space-y-4">
-                      <div>
-                        <h3 className="text-xl font-bold">{proj.title}</h3>
-                        <p className="text-muted-foreground">{proj.desc}</p>
-                      </div>
-                      <div className="flex items-center space-x-4">
-                        <div className="rounded-full bg-muted h-10 w-10 flex items-center justify-center">
-                          <span className="font-medium text-sm">{proj.avatar}</span>
-                        </div>
-                        <div>
-                          <p className="font-medium">{proj.client}</p>
-                          <p className="text-sm text-muted-foreground">{proj.type}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </Marquee>
+        <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
+          {displayedProjects.map((proj, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+              className="h-full"
+            >
+              <Card className="h-full flex flex-col overflow-hidden border-muted hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-lg group bg-card/50 backdrop-blur-sm">
+                <CardHeader className="p-0">
+                  <div className="h-48 bg-muted flex items-center justify-center relative overflow-hidden group-hover:bg-primary/5 transition-colors">
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span className="font-bold text-6xl text-primary/20 group-hover:text-primary/40 transition-colors transform group-hover:scale-110 duration-500">
+                      {proj.avatar}
+                    </span>
+                    <Badge className="absolute top-4 right-4" variant={proj.type === "Client" ? "default" : "secondary"}>
+                      {proj.type}
+                    </Badge>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-1 p-6 space-y-4">
+                  <div>
+                    <h3 className="text-2xl font-bold group-hover:text-primary transition-colors line-clamp-1">
+                      {proj.title}
+                    </h3>
+                    <p className="text-sm font-medium text-primary/60 mb-2">{proj.client}</p>
+                    <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                      {proj.desc}
+                    </p>
+                  </div>
+                </CardContent>
+                <CardFooter className="p-6 pt-0 mt-auto">
+                  <Button asChild className="w-full group/btn" variant="outline">
+                    <Link href={proj.link || "#"}>
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="flex justify-center mt-12">
+          <Button asChild variant="outline" size="lg" className="group border-primary/20 hover:border-primary/50 hover:bg-primary/5">
+            <Link href="/portfolio">
+              View All Projects
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
