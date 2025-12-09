@@ -21,7 +21,7 @@ export const projects = [
         client: "Internal",
         type: "Team Project",
         avatar: "N",
-        link: "#"
+        link: "https://www.neurolab.cc/"
     },
     {
         title: "ApheZis Platform",
