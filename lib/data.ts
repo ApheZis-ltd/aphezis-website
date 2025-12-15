@@ -19,8 +19,8 @@ export const projects: Project[] = [
         link: "https://connectify.rw"
     },
     {
-        title: "Actors Rwanda",
-        desc: "The premier platform connecting Rwandan actors with casting directors and production houses. Streamlining the casting process with digital profiles and audition management.",
+        title: "Actors Rwanda Organization",
+        desc: "Leveraging the power of drama and performing arts to address critical social issues, focusing on mental health awareness and anti-mines campaigns.",
         client: "Actors Rwanda",
         type: "Client",
         avatar: "A",

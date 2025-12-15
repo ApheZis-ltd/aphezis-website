@@ -38,12 +38,12 @@ export default function PortfolioPage() {
                                             <div className="h-48 bg-muted flex items-center justify-center relative overflow-hidden group-hover:bg-primary/5 transition-colors">
                                                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                                                 {proj.image ? (
-                                                    <div className={`relative w-full h-full ${["ApheZis Platform", "Actors Rwanda", "DocFlow AI"].includes(proj.title) ? "p-4" : ""}`}>
+                                                    <div className={`relative w-full h-full ${["ApheZis Platform", "Actors Rwanda Organization", "DocFlow AI"].includes(proj.title) ? "p-4" : ""}`}>
                                                         <Image
                                                             src={proj.image}
                                                             alt={proj.title}
                                                             fill
-                                                            className={`${["ApheZis Platform", "Actors Rwanda", "DocFlow AI"].includes(proj.title) ? "object-contain" : "object-cover"} group-hover:scale-105 transition-transform duration-500`}
+                                                            className={`${["ApheZis Platform", "Actors Rwanda Organization", "DocFlow AI"].includes(proj.title) ? "object-contain" : "object-cover"} group-hover:scale-105 transition-transform duration-500`}
                                                         />
                                                     </div>
                                                 ) : (
