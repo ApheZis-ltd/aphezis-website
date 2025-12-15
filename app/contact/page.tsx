@@ -95,15 +95,23 @@ export default function ContactPage() {
                         </p>
                       </motion.div>
                     ) : (
-                      <form onSubmit={handleSubmit} className="space-y-4">
+                      <form
+                        action="https://formsubmit.co/c5dba7a92e584e2190d0ba123e6782e2"
+                        method="POST"
+                        className="space-y-4"
+                      >
+                        {/* FormSubmit configuration */}
+                        <input type="hidden" name="_subject" value="New Contact Form Message" />
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_template" value="table" />
+                        <input type="hidden" name="_next" value="https://aphezis.com?submitted=true" />
+
                         <div className="space-y-2">
                           <Label htmlFor="name">Name</Label>
                           <Input
                             id="name"
                             name="name"
                             placeholder="Your name"
-                            value={formData.name}
-                            onChange={handleChange}
                             required
                             className="transition-all duration-200 focus:border-primary"
                           />
@@ -115,8 +123,6 @@ export default function ContactPage() {
                             name="email"
                             type="email"
                             placeholder="Your email"
-                            value={formData.email}
-                            onChange={handleChange}
                             required
                             className="transition-all duration-200 focus:border-primary"
                           />
@@ -127,8 +133,6 @@ export default function ContactPage() {
                             id="subject"
                             name="subject"
                             placeholder="Subject"
-                            value={formData.subject}
-                            onChange={handleChange}
                             required
                             className="transition-all duration-200 focus:border-primary"
                           />
@@ -139,8 +143,6 @@ export default function ContactPage() {
                             id="message"
                             name="message"
                             placeholder="Your message"
-                            value={formData.message}
-                            onChange={handleChange}
                             className="min-h-[150px] transition-all duration-200 focus:border-primary"
                             required
                           />
@@ -149,38 +151,9 @@ export default function ContactPage() {
                           <Button
                             type="submit"
                             className="w-full relative overflow-hidden group"
-                            disabled={isSubmitting}
                           >
-                            {isSubmitting ? (
-                              <div className="flex items-center justify-center">
-                                <svg
-                                  className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <circle
-                                    className="opacity-25"
-                                    cx="12"
-                                    cy="12"
-                                    r="10"
-                                    stroke="currentColor"
-                                    strokeWidth="4"
-                                  ></circle>
-                                  <path
-                                    className="opacity-75"
-                                    fill="currentColor"
-                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                                  ></path>
-                                </svg>
-                                Sending...
-                              </div>
-                            ) : (
-                              <>
-                                Send Message
-                                <span className="absolute right-0 -mt-12 h-32 w-8 bg-white opacity-10 rotate-12 transform -translate-x-12 transition-transform duration-1000 ease-out group-hover:translate-x-40"></span>
-                              </>
-                            )}
+                            Send Message
+                            <span className="absolute right-0 -mt-12 h-32 w-8 bg-white opacity-10 rotate-12 transform -translate-x-12 transition-transform duration-1000 ease-out group-hover:translate-x-40"></span>
                           </Button>
                         </motion.div>
                       </form>
@@ -200,7 +173,7 @@ export default function ContactPage() {
                           <div>
                             <h3 className="font-bold">Our Location</h3>
                             <p className="text-muted-foreground">Norrsken House Kigali;
-                            1 KN 78 St, Kigali</p>
+                              1 KN 78 St, Kigali</p>
                           </div>
                         </div>
                       </CardContent>
@@ -279,7 +252,7 @@ export default function ContactPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="flex h-full w-full items-center justify-center" >
-                  <iframe className="flex h-full w-full items-center justify-center" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6277.205230719282!2d30.057412912191715!3d-1.9511665367094533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca5a86d814c61%3A0x7d3b83e12b1c11a9!2sNorrsken%20House%20Kigali!5e1!3m2!1sen!2srw!4v1744753289435!5m2!1sen!2srw" width="600" height="450" style={{ border: "0" }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe className="flex h-full w-full items-center justify-center" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6277.205230719282!2d30.057412912191715!3d-1.9511665367094533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca5a86d814c61%3A0x7d3b83e12b1c11a9!2sNorrsken%20House%20Kigali!5e1!3m2!1sen!2srw!4v1744753289435!5m2!1sen!2srw" width="600" height="450" style={{ border: "0" }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                   </div>
                 </motion.div>
               </div>

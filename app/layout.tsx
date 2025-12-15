@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import { WhatsAppPopup } from "@/components/whatsapp-popup"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -27,11 +28,9 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
+          <WhatsAppPopup />
         </ThemeProvider>
       </body>
     </html>
   )
 }
-
-
-import './globals.css'

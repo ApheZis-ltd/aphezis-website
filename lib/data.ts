@@ -1,19 +1,31 @@
-export const projects = [
+export interface Project {
+    title: string;
+    desc: string;
+    client: string;
+    type: string;
+    avatar: string;
+    image?: string;
+    link: string;
+}
+
+export const projects: Project[] = [
     {
         title: "Connectify.rw",
         desc: "A modern automotive listing site with secure business email & domain integration.",
         client: "Connectify",
         type: "Client",
         avatar: "C",
+        image: "/plogo/conectify.svg",
         link: "https://connectify.rw"
     },
     {
-        title: "DocFlow AI",
-        desc: "DocFlow AI extracts financial data from PDFs in seconds – think invoices, receipts, bank statements – and turns it into clean, structured JSON or CSV. No more manual data entry.",
-        client: "Internal",
-        type: "Product",
-        avatar: "D",
-        link: "https://docflow.aphezis.com/"
+        title: "Actors Rwanda",
+        desc: "The premier platform connecting Rwandan actors with casting directors and production houses. Streamlining the casting process with digital profiles and audition management.",
+        client: "Actors Rwanda",
+        type: "Client",
+        avatar: "A",
+        image: "/plogo/actors.png",
+        link: "https://actors.aphezis.com"
     },
     {
         title: "NeuroLab EEG App",
@@ -21,6 +33,7 @@ export const projects = [
         client: "Internal",
         type: "Team Project",
         avatar: "N",
+        image: "/plogo/neurolab.jpeg",
         link: "https://www.neurolab.cc/"
     },
     {
@@ -29,6 +42,7 @@ export const projects = [
         client: "Internal",
         type: "Team Project",
         avatar: "A",
+        image: "/plogo/aphezis.png",
         link: "#"
     },
     {
@@ -37,14 +51,16 @@ export const projects = [
         client: "Internal",
         type: "Team Project",
         avatar: "G",
+        image: "/plogo/genzura.png",
         link: "#"
     },
     {
-        title: "Weduca Platform",
-        desc: "A comprehensive educational platform designed to facilitate online learning and collaboration.",
-        client: "Kenzo",
-        type: "Client",
-        avatar: "K",
-        link: "#"
+        title: "DocFlow AI",
+        desc: "DocFlow AI extracts financial data from PDFs in seconds – think invoices, receipts, bank statements – and turns it into clean, structured JSON or CSV. No more manual data entry.",
+        client: "Internal",
+        type: "Product",
+        avatar: "D",
+        image: "/plogo/docflow.webp",
+        link: "https://docflow.aphezis.com/"
     },
 ]

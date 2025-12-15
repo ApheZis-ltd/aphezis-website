@@ -2,6 +2,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import { projects } from "@/lib/data"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight } from "lucide-react"
@@ -32,11 +33,22 @@ export default function PortfolioSection() {
               <Card className="h-full flex flex-col overflow-hidden border-muted hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-lg group bg-card/50 backdrop-blur-sm">
                 <CardHeader className="p-0">
                   <div className="h-48 bg-muted flex items-center justify-center relative overflow-hidden group-hover:bg-primary/5 transition-colors">
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <span className="font-bold text-6xl text-primary/20 group-hover:text-primary/40 transition-colors transform group-hover:scale-110 duration-500">
-                      {proj.avatar}
-                    </span>
-                    <Badge className="absolute top-4 right-4" variant={proj.type === "Client" ? "default" : "secondary"}>
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                    {proj.image ? (
+                      <div className={`relative w-full h-full ${["ApheZis Platform", "Actors Rwanda", "DocFlow AI"].includes(proj.title) ? "p-4" : ""}`}>
+                        <Image
+                          src={proj.image}
+                          alt={proj.title}
+                          fill
+                          className={`${["ApheZis Platform", "Actors Rwanda", "DocFlow AI"].includes(proj.title) ? "object-contain" : "object-cover"} group-hover:scale-105 transition-transform duration-500`}
+                        />
+                      </div>
+                    ) : (
+                      <span className="font-bold text-6xl text-primary/20 group-hover:text-primary/40 transition-colors transform group-hover:scale-110 duration-500">
+                        {proj.avatar}
+                      </span>
+                    )}
+                    <Badge className="absolute top-4 right-4 z-20" variant={proj.type === "Client" ? "default" : "secondary"}>
                       {proj.type}
                     </Badge>
                   </div>
